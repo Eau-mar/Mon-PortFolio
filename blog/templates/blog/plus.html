@@ -1,0 +1,206 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block meta %}
+  <meta property="og:title" content="{{ MonProjet.libellé }}" />
+  <meta property="og:description" content="{{ MonProjet.detail|truncatechars:150 }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  {% if og_image_url %}
+    <meta property="og:image" content="{{ og_image_url }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  {% endif %}
+
+{% endblock meta %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "{{ MonProjet.libellé }}",
+  "description": "{{ MonProjet.detail|truncatechars:160|escapejs }}",
+  
+  {% if og_image_url %}
+    "image": "{{ og_image_url }}",
+  {% endif %}
+
+  "url": "{{ request.build_absolute_uri }}",
+  "author": {
+    "@type": "Person",
+    "name": "Omar Devo"
+  },
+  "datePublished": "{{ MonProjet.date|date:'Y-m-d' }}"
+}
+</script>
+{% endblock %}
+
+
+
+{% block titre %}{{ MonProjet.libellé }}{% endblock titre %}
+{% block desc %} Omar Dodo Portfolio : {{ MonProjet.detail|truncatechars:160 }}{% endblock desc %}
+
+{% block content %}
+
+<section class="w-full bg-[#0a1a2e] py-4 text-white px-2 rounded-xl py-8 lg:px-10">
+
+  <!-- Navigation haut -->
+  <div class="flex justify-between items-center mb-10 max-w-6xl mx-auto">
+    <a href="{% url 'portfolio' %}" class="text-white hover:text-cyan-300 font-semibold transition duration-300">
+      &larr; Portfolio
+    </a>
+
+    {% if MonProjet.projet_url %}
+      <a href="{{ MonProjet.projet_url }}" target="_blank" rel="noopener noreferrer"
+         class="bg-[#FFD700] hover:bg-[#FFD700]/70 text-[#282828] px-5 py-3 rounded-md font-semibold shadow-md transition">
+        Voir le projet
+      </a>
+    {% endif %}
+  </div>
+
+  <!-- Titre & description -->
+  <div class="text-center max-w-4xl mx-auto animate-fade-up">
+    <h1 class="text-4xl md:text-5xl font-bold text-[#FFD700] mb-4">{{ MonProjet.libellé }}</h1>
+    <h2 id="ethno" class="text-2xl md:text-3xl text-blue-100 font-bold mb-6">{{ MonProjet.pour }}</h2>
+    <p class="text-lg px-4 text-white leading-relaxed">
+      {{ MonProjet.detail }}
+    </p>
+  </div>
+
+
+<!-- Section partage -->
+<div class="mt-8">
+  <p class="text-lg font-semibold text-[#FFD700] mb-3">Partager ce projet :</p>
+  <div class="flex flex-wrap gap-3">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+       target="_blank"
+       class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-2xl shadow hover:bg-blue-700 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M22.675 0h-21.35C.595 0 0 .595 0 
+        1.326v21.348C0 23.405.595 24 1.326 
+        24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 
+        1.894-4.788 4.659-4.788 1.325 0 
+        2.464.099 2.797.143v3.24l-1.922.001c-1.507 
+        0-1.798.716-1.798 1.767v2.317h3.587l-.467 
+        3.622h-3.12V24h6.116C23.405 24 24 23.405 
+        24 22.674V1.326C24 .595 23.405 0 22.675 0z"/>
+      </svg>
+      Facebook
+    </a>
+
+    <!-- Twitter -->
+    <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ MonProjet.libellé }}"
+       target="_blank"
+       class="flex items-center gap-2 bg-sky-500 text-white px-4 py-2 rounded-2xl shadow hover:bg-sky-600 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 
+        1.014-.611 1.794-1.574 2.163-2.723-.951.564-2.005.974-3.127 
+        1.195-.897-.959-2.178-1.559-3.594-1.559-2.717 
+        0-4.924 2.206-4.924 4.924 0 .39.045.765.127 
+        1.124-4.09-.205-7.719-2.165-10.148-5.144-.424.729-.667 
+        1.577-.667 2.475 0 1.708.87 3.216 2.188 
+        4.099-.807-.026-1.566-.248-2.229-.616v.061c0 
+        2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.317 
+        0-.626-.03-.928-.086.627 1.956 2.444 3.379 4.6 
+        3.419-1.68 1.318-3.808 2.105-6.102 
+        2.105-.397 0-.788-.023-1.175-.068 2.179 1.397 
+        4.768 2.213 7.557 2.213 9.054 
+        0 14-7.496 14-13.986 0-.21-.004-.423-.014-.634.962-.693 
+        1.8-1.56 2.46-2.548l-.047-.02z"/>
+      </svg>
+      Twitter
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ MonProjet.libellé }}"
+       target="_blank"
+       class="flex items-center gap-2 bg-blue-800 text-white px-4 py-2 rounded-2xl shadow hover:bg-blue-900 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 
+        5v14c0 2.761 2.239 5 5 
+        5h14c2.762 0 5-2.239 
+        5-5v-14c0-2.761-2.238-5-5-5zm-11 
+        19h-3v-10h3v10zm-1.5-11.268c-.966 
+        0-1.75-.804-1.75-1.732s.784-1.732 
+        1.75-1.732 1.75.804 
+        1.75 1.732-.784 1.732-1.75 
+        1.732zm13.5 11.268h-3v-5.604c0-1.338-.025-3.062-1.867-3.062-1.868 
+        0-2.154 1.459-2.154 2.963v5.703h-3v-10h2.881v1.367h.041c.401-.761 
+        1.379-1.562 2.841-1.562 3.041 
+        0 3.598 2.003 3.598 4.605v5.59z"/>
+      </svg>
+      LinkedIn
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/?text={{ MonProjet.libellé }} - {{ request.build_absolute_uri }}"
+       target="_blank"
+       class="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-2xl shadow hover:bg-green-600 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M20.52 3.48a11.867 11.867 0 0 0-16.81 
+        0c-4.63 4.63-4.63 12.18 0 
+        16.81a11.867 11.867 0 0 0 16.81 
+        0c4.63-4.63 4.63-12.18 0-16.81zm-8.41 
+        17.19c-1.74 0-3.41-.46-4.88-1.33l-5.2 
+        1.37 1.39-5.07c-.94-1.57-1.44-3.37-1.44-5.22 
+        0-5.44 4.42-9.86 9.86-9.86 2.64 
+        0 5.13 1.03 7 2.9 1.87 1.87 2.9 4.36 
+        2.9 7 0 5.44-4.42 9.86-9.86 
+        9.86zm5.68-7.27c-.31-.16-1.83-.9-2.11-1-.28-.1-.49-.16-.7.16-.21.31-.8 
+        1-.98 1.21-.18.21-.36.23-.67.08-.31-.16-1.3-.48-2.47-1.53-.91-.81-1.53-1.81-1.71-2.12-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.03-.54-.08-.16-.7-1.68-.96-2.3-.25-.6-.51-.52-.7-.53-.18-.01-.39-.01-.6-.01-.21 
+        0-.54.08-.82.39s-1.08 1.05-1.08 2.56c0 1.5 1.1 2.95 1.26 3.16.16.21 2.17 
+        3.31 5.26 4.64.74.32 1.31.51 1.76.65.74.24 1.42.21 1.95.13.59-.09 
+        1.83-.75 2.09-1.47.26-.72.26-1.34.18-1.47-.08-.13-.28-.21-.59-.36z"/>
+      </svg>
+      WhatsApp
+    </a>
+
+    <!-- Copier lien -->
+    <button onclick="navigator.clipboard.writeText('{{ request.build_absolute_uri }}')"
+       class="flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-2xl shadow hover:bg-gray-800 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M16 1H4c-1.1 0-2 .9-2 
+        2v14h2V3h12V1zm3 4H8c-1.1 0-2 
+        .9-2 2v14c0 1.1.9 2 2 
+        2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+        16H8V7h11v14z"/>
+      </svg>
+      Copier le lien
+    </button>
+
+  </div>
+</div>
+
+  <!-- Galerie Masonry -->
+  {% if MonProjet.images.exists %}
+  <div class="mt-16 max-w-7xl mx-auto px-2 animate-fade-up delay-200">
+    <div class="columns-2 sm:columns-2 md:columns-3 gap-3 space-y-3">
+      {% for img in MonProjet.images.all %}
+        <div class="relative overflow-hidden rounded-2xl p-1 neumorphic-card group transition-all duration-300">
+          <picture>
+            <source srcset="{{ img.image_webp }}" type="image/webp">
+            <img src="{{ img.image.url }}" alt="{{ img.alt_text }}"
+              class="w-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 opacity-95 image-animate"
+              loading="lazy">
+          </picture>
+          
+          {% if img.alt_text %}
+          <div class="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-sm px-3 py-1 rounded-lg text-center">
+            {{ img.alt_text }}
+          </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+    <p class="text-center text-blue-100/70 italic mt-12">Aucune image disponible pour ce projet.</p>
+  {% endif %}
+  
+
+
+</section>
+{% endblock content %}

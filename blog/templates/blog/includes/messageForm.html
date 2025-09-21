@@ -1,0 +1,60 @@
+<!-- MODALE MESSAGE -->
+<div id="messageModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-99 overflow-auto md:w-1/3">
+    <div class="bg-[#001f3f] w-full max-w-3xl rounded-3xl p-8 relative shadow-2xl text-white">
+
+      <!-- Bouton fermer -->
+      <button id="closeModalBtn" class="absolute top-4 right-4 text-[#FFD700] font-bold text-3xl">&times;</button>
+
+      <h2 class="text-4xl font-bold text-[#FFD700] mb-8 text-center">Envoyer un message</h2>
+
+      <!-- Formulaire -->
+      <form id="messageForm" class="space-y-6 max-h-[75vh] overflow-y-auto px-2" method="POST" action="{% url 'envoyer_message' %}">
+        {% csrf_token %}
+
+        <!-- Nom -->
+        <div class="relative opacity-0 transform translate-y-6 transition duration-500 delay-100">
+          <input type="text" name="nom" id="nom" required
+            class="peer w-full border border-gray-400 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#FFD700] text-[#001f3f] font-semibold bg-[#f8f8f8]">
+          <label for="nom" class="absolute left-5 top-4 text-gray-400 text-base transition-all
+            peer-focus:top-1 peer-focus:text-[#FFD700] peer-focus:text-sm
+            peer-valid:top-1 peer-valid:text-[#FFD700] peer-valid:text-sm">Nom</label>
+        </div>
+
+        <!-- Email -->
+        <div class="relative opacity-0 transform translate-y-6 transition duration-500 delay-200">
+          <input type="email" name="email" id="email" required
+            class="peer w-full border border-gray-400 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#FFD700] text-[#001f3f] font-semibold bg-[#f8f8f8]">
+          <label for="email" class="absolute left-5 top-4 text-gray-400 text-base transition-all
+            peer-focus:top-1 peer-focus:text-[#FFD700] peer-focus:text-sm
+            peer-valid:top-1 peer-valid:text-[#FFD700] peer-valid:text-sm">Email</label>
+        </div>
+
+        <!-- Message -->
+        <div class="relative opacity-0 transform translate-y-6 transition duration-500 delay-300">
+          <textarea name="message" id="message" rows="5"
+            class="peer w-full border border-gray-400 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#FFD700] text-[#001f3f] font-semibold bg-[#f8f8f8]"></textarea>
+          <label for="message" class="absolute left-5 top-4 text-gray-400 text-base transition-all
+            peer-focus:top-1 peer-focus:text-[#FFD700] peer-focus:text-sm
+            peer-valid:top-1 peer-valid:text-[#FFD700] peer-valid:text-sm">Votre message</label>
+        </div>
+
+        <!-- Bouton envoyer -->
+        <div class="opacity-0 transform translate-y-6 transition duration-500 delay-400">
+          <button type="submit" id="submitBtn"
+            class="bg-[#FFD700] text-[#001f3f] font-bold py-3 px-6 rounded-xl flex items-center justify-center space-x-3 hover:bg-[#FFC700] transition">
+            <span>Envoyer</span>
+            <svg id="loader" class="animate-spin h-5 w-5 text-[#001f3f] hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"
+    class="fixed bottom-5 right-5 bg-[#FFD700] text-[#001f3f] px-5 py-3 rounded-2xl shadow-lg opacity-0 transition-opacity duration-500">
+    Merci pour votre message ! Nous vous répondrons bientôt.
+  </div>

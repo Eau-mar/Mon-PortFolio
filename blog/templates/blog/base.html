@@ -1,0 +1,144 @@
+{% load static %}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Description pour les moteurs de recherche -->
+    <meta name="description" content="{% block desc %}Devo{% endblock desc %}">
+
+    {% block meta %}
+    <!-- Balises Open Graph -->
+    <meta property="og:title" content="Omar Souley | Développeur & Designer" />
+    <meta property="og:description" content="Portfolio professionnel de Omar Souley. Découvrez mes projets en développement web et design graphique." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ton-domaine.com/" />
+    <meta property="og:image" content="{% static 'blog/images/LogoDevo.png' %}" />
+    <meta property="og:locale" content="fr_FR" />
+    {% endblock %}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Omar Souley | Développeur & Designer" />
+    <meta name="twitter:description" content="Portfolio professionnel de Omar Souley. Découvrez mes projets en développement web et design graphique." />
+    <meta name="twitter:image" content="{% static 'blog/images/LogoDevo.png' %}" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'blog/images/LogoDevo.png' %}" type="image/x-icon">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}">
+    
+    <!-- Swiper JS -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="{% static 'blog/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/portfolio.css' %}">
+    <link href="{% static 'theme/css/dist/styles_tailwind.css' %}" rel="stylesheet">
+
+
+    <!-- Ajout des icônes modernes (Phosphor Icons) -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Omar Devo",
+        "alternateName": "Dodo Souley Omar",
+        "url": "https://ton-domaine.com/",
+        "image": "https://ton-domaine.com/static/images/portrait.jpg",
+        "jobTitle": "Développeur & Designer Graphique",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "sameAs": [
+          "https://github.com/Eau-mar",
+          "https://www.linkedin.com/in/dodo-souley-omar-0515312a0",
+          "https://facebook.com/profile.php?id=61552189910698"
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portfolio Omar Souley",
+        "url": "https://ton-domaine.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://ton-domaine.com/recherche/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    {% block schema %}{% endblock %}
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX'); // remplace par ton vrai ID
+    </script>
+
+    <title>{% block titre %}Base{% endblock titre %}</title>
+
+</head>
+<body id="creator" class="bg-body text-text font-poppins bg-animated-blur">
+
+  <div class="max-w-7xl mx-auto pt-6 flex flex-col lg:flex-row gap-6 px-4">
+    {% include "blog/includes/left.html" %}
+    <!-- RIGHT PANEL -->
+    <main style="margin-bottom: 60px;" class="bg-[#0a1a2e] border border-[#FFD700] rounded-xl shadow-lg w-full lg:ml-[34%] px-0 py-0 space-y-0 text-white">
+      <!-- NAVIGATION DESKTOP HORIZONTALE -->
+      <!-- NAVIGATION DESKTOP -->
+    <nav id="desktopNav" class="hidden lg:flex justify-center gap-16 text-sm font-medium py-4 border-b border-[#FFD700]/20 text-gray-400">
+      <a href="{% url 'home' %}" class="nav-link flex items-center gap-2 hover:text-[#FFD700] transition">
+        <i class="ph ph-user-circle text-xl"></i>
+        <span>A Propos</span>
+      </a>
+      <a href="{% url 'portfolio' %}" class="nav-link flex items-center gap-2 hover:text-[#FFD700] transition">
+        <i class="ph ph-briefcase text-xl"></i>
+        <span>Projets</span>
+      </a>
+    </nav>
+
+    <!-- NAVIGATION MOBILE FIXE EN BAS -->
+    <nav id="mobileNav" class="fixed bottom-0 left-0 right-0 z-50 bg-[#0a1a2e] border-t border-[#FFD700]/20 flex lg:hidden">
+      <a href="{% url 'home' %}" class="w-1/2 flex justify-center items-center gap-2 py-3 text-gray-400 hover:text-[#FFD700] transition">
+        <i class="ph ph-house-simple text-xl"></i>
+        <span class="text-sm">Accueil</span>
+      </a>
+      <a href="{% url 'portfolio' %}" class="w-1/2 flex justify-center items-center gap-2 py-3 text-gray-400 hover:text-[#FFD700] transition">
+        <i class="ph ph-folder-open text-xl"></i>
+        <span class="text-sm">Projets</span>
+      </a>
+    </nav>
+
+      {% block content %}{% endblock content %}
+
+      {% include "blog/includes/footer.html" %}
+    </main> 
+  </div>
+
+
+  {% include "blog/includes/devis.html" %}
+  {% include "blog/includes/messageForm.html" %}
+
+  <script src="{% static 'blog/js/globals.js' %}"></script>
+  <script src="{% static 'blog/js/portfolio_js.js' %}"></script>
+  
+
+</body>
+</html>

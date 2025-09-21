@@ -1,0 +1,19 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Page non trouvée</title>
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body class="bg-[#282828] text-white flex items-center justify-center h-screen">
+  <div class="text-center">
+    <h1 class="text-6xl font-bold text-yellow-500">404</h1>
+    <p class="text-xl mt-4">Oups ! Cette page n’existe pas.</p>
+    <a href="{% url 'Accueil' %}" class="mt-6 inline-block bg-yellow-500 text-[#282828] px-6 py-3 rounded-xl hover:bg-yellow-400">
+      Retour à l’accueil
+    </a>
+  </div>
+</body>
+</html>

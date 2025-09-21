@@ -1,0 +1,289 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block desc %} Programmeur et développeur web à Niamey, Niger. Spécialiste en design et création digitale, je conçois des sites et logiciels modernes et performants. {% endblock desc %}
+
+{% block titre %}Omar | ProtFolio{% endblock titre %}
+
+{% block content %}
+
+    <section class="relative bg-[#010017] text-white min-h-screen flex items-center rounded-xl justify-center px-6">
+      <!-- Décor lumineux -->
+      <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-[#0a1a2e] via-[#020024] to-[#010017]"></div>
+      <div class="absolute top-0 left-0 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"></div>
+
+      <!-- Contenu -->
+      <div class="relative z-2 text-center max-w-3xl">
+        
+        <h1 class="hero-item opacity-0 translate-y-6 transition-all duration-700 text-4xl md:text-6xl font-extrabold leading-tight">
+          Bonjour, je suis <span class="text-yellow-400">Dodo Souley Omar</span>
+        </h1>
+        
+        <p class="hero-item opacity-0 translate-y-6 transition-all duration-700 mt-6 text-lg md:text-xl text-gray-300">
+          <span class="text-cyan-400">Programmeur & Designer Graphique.</span><br>
+          J’allie développement et design pour des projets fiables et innovants.
+        </p>                
+
+        <!-- Boutons -->
+        <div class="hero-item opacity-0 translate-y-6 transition-all duration-700 mt-8 flex flex-col md:flex-row items-center justify-center z-3 gap-4">
+          <!-- Bouton ouverture -->
+          <button id="openModalBtn1" class="bg-[#FFD700] text-[#0a1a2e] font-semibold px-6 py-2 rounded-lg hover:bg-yellow-400 transition">
+            Demander un devis
+          </button>
+        </div>
+
+        <!-- Animation texte -->
+        <div class="mt-12 text-cyan-400 font-mono text-lg md:text-xl">
+          <span id="typing"></span><span class="animate-pulse">|</span>
+        </div>
+      </div>
+    </section>
+    
+    <section id="about" class="bg-[#0a1a2e]">
+      <div class="sticky top-0 z-3 bg-[#0a1a2e] px-4 py-4 text-[#FFD700] text-2xl font-bold shadow-lg">
+        Qui suis-je ?
+      </div>
+    
+      <div class="mt-10 grid px-6 grid-cols-1 md:grid-cols-2 gap-8 text-gray-300 leading-relaxed">
+        <!-- Texte principal -->
+        <div class="space-y-6">
+          <h2 id="creator" class="about-item text-3xl font-extrabold text-white opacity-0 translate-y-6 transition-all duration-500">
+            Développeur Web & Designer Graphique
+          </h2>
+          <p class="about-item opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] font-medium">Développement Web :</span> spécialiste back-end (<i class="text-white">Python/Django</i>) et front-end (<i class="text-white">Tailwind CSS</i>), je crée des applications modernes, sécurisées et performantes.
+          </p>
+          <p class="about-item opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] font-medium">Gestion des données :</span> modélisation, bases de données et gouvernance pour assurer l’intégrité et la valorisation des informations.
+          </p>
+          <p class="about-item opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] font-medium">Design & communication :</span> conception de branding, identités visuelles et supports de communication (logos, affiches, flyers, banderoles, cartes) avec un rendu professionnel.
+          </p>
+          <p class="about-item opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] font-medium">Engagement :</span> fournir des solutions sur mesure alliant performance technique et design soigné.
+          </p>
+        </div>
+    
+        <!-- Liste des compétences -->
+        <div class="space-y-4">
+          <div class="about-item flex items-start gap-4 opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] text-xl">&#10003;</span>
+            <p><span class="text-[#FFD700] font-medium">Bases de données & Modélisation :</span> Merise, MySQL</p>
+          </div>
+          <div class="about-item flex items-start gap-4 opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] text-xl">&#10003;</span>
+            <p><span class="text-[#FFD700] font-medium">Développement Web :</span> HTML/CSS, Python, Django, Tailwind CSS</p>
+          </div>
+          <div class="about-item flex items-start gap-4 opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] text-xl">&#10003;</span>
+            <p><span class="text-[#FFD700] font-medium">Développement logiciel :</span> WinDev, Langage C</p>
+          </div>
+          <div class="about-item flex items-start gap-4 opacity-0 translate-y-6 transition-all duration-500">
+            <span class="text-[#FFD700] text-xl">&#10003;</span>
+            <p><span class="text-[#FFD700] font-medium">Design graphique & UI/UX Design :</span> Illustrator (AI), Photoshop (PS), Figma</p>
+          </div><br><br>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="bg-[#0a1a2e] text-white">
+      <!-- Titre sticky -->
+      <div class="sticky top-0 z-3 bg-[#0a1a2e] px-4 py-4 text-[#FFD700] text-2xl font-bold shadow-lg">
+        Projets
+      </div>
+    
+      <div class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-[#FFD700] text-3xl md:text-4xl font-bold text-center mb-6">
+          Mes réalisations
+        </h2>
+        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">
+          Plongez dans mes projets — un mélange de développement (logiciels, Applications Web et Site Web).
+        </p>
+    
+        <div class="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+          {% for p in mesProjets %}
+          <a href="portfolio/{{ p.slug }}/plus"
+             data-category="{{p.type_pro}}"
+             class="project-animate mb-4 break-inside-avoid block group rounded-2xl overflow-hidden shadow-lg bg-[#1f1f1f] border border-[#FFD700]/20 hover:bg-[#2e2e2e] transition project-card about-item">
+      
+            <div class="relative">
+              <img src="{{ p.photo.url }}"
+                   alt="{{ p.libellé }}"
+                   class="w-full object-cover rounded-t-4xl transition-transform duration-500 group-hover:scale-105"
+                   loading="lazy" />
+      
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center px-4 text-center">
+                <h3 class="text-lg font-bold text-[#FFD700] mb-1">{{ p.libellé }}</h3>
+                <p class="text-sm text-white">{{ p.pour }}</p>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        
+    
+        <div class="mt-12 text-center">
+          <a href="{% url 'portfolio' %}" class="inline-block px-6 py-3 rounded-md bg-[#FFD700] hover:bg-yellow-400 text-[#282828] font-semibold shadow-md transition">
+            Voir tous les projets
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative bg-[#0a1a2e] text-white">
+      <!-- Titre sticky -->
+      <div class="sticky top-0 z-3 bg-[#0a1a2e] px-4 py-4 text-[#FFD700] text-2xl font-bold shadow-lg">
+        Témoignages
+      </div>
+    
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-[#FFD700] text-3xl md:text-4xl font-bold text-center mb-6">
+          Ce que disent nos utilisateurs
+        </h2>
+        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">
+          Découvrez les retours d’expérience de nos clients qui ont adopté nos solutions digitales modernes.
+        </p>
+    
+        <!-- Carrousel -->
+        <div id="temoignagesCarousel" 
+             class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory">
+          
+          {% for T in mesTemoignages %}
+            <div class="flex-shrink-0 w-[85%] about-item sm:w-[60%] md:w-[40%] lg:w-[30%] snap-center">
+              <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-lg h-full flex flex-col justify-between transition hover:scale-105 duration-500">
+                <p class="text-white text-lg leading-relaxed mb-6">
+                  “{{ T.commentaire }}”
+                </p>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-white text-xl font-bold">A</div>
+                  <div>
+                    <p class="text-white font-semibold">{{ T.prenom }}</p>
+                    <p class="text-gray-400 text-sm">{{ T.profession }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+    
+        </div>
+      </div>
+    </section>
+
+    <section class="relative bg-[#0a1a2e] text-white">
+      <!-- Titre sticky -->
+      <div class="sticky top-0 z-3 bg-[#0a1a2e] px-4 py-4 text-[#FFD700] text-2xl font-bold shadow-lg">
+        FAQ
+      </div><br><br>
+
+      <h2 class="text-[#FFD700] text-3xl md:text-4xl font-bold text-center mb-6">
+        Foîre aux questions
+      </h2>
+      <p class=" px-4 text-center text-gray-300 max-w-2xl mx-auto mb-12">
+        Voici les réponses aux questions que mes clients me posent le plus souvent.
+      </p>
+
+      <div class="space-y-4 px-6">
+        <div class="faq-item opacity-0 translate-y-6 transition-all duration-700 border border-[#0a1a2e]/50 rounded-lg overflow-hidden">
+          <button class="w-full flex justify-between items-center px-5 py-4 text-left hover:bg-cyan-400/10 transition group" onclick="toggleFAQ(this)">
+            <span>Quels services proposez-vous exactement ?</span>
+            <svg class="w-5 h-5 text-[#FFD700] transform transition-transform group-[.open]:rotate-180"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="max-h-0 overflow-hidden transition-all duration-300 px-5 text-gray-300">
+            <p class="py-3">Je développe des applications web modernes (Django + Tailwind), 
+              conçois des logiciels adaptés aux besoins spécifiques, 
+              et réalise des créations graphiques : logos, affiches, bannières, etc.</p>
+          </div>
+        </div>
+
+          <div class="faq-item opacity-0 translate-y-6 transition-all duration-700 border border-[#0a1a2e]/50 rounded-lg overflow-hidden">
+            <button class="w-full flex justify-between items-center px-5 py-4 text-left hover:bg-cyan-400/10 transition group" onclick="toggleFAQ(this)">
+              <span>Comment se déroule un projet ?</span>
+              <svg class="w-5 h-5 text-[#FFD700] transform transition-transform group-[.open]:rotate-180"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="max-h-0 overflow-hidden transition-all duration-300 px-5 text-gray-300">
+              <p class="mt-3 text-gray-300 leading-relaxed">
+                Chaque projet suit un processus clair : 
+                <span class="text-[#ffdf00]">prise de brief</span>, 
+                <span class="text-[#ffdf00]">conception</span>, 
+                <span class="text-[#ffdf00]">développement/design</span>, 
+                <span class="text-[#ffdf00]">tests</span>, 
+                puis <span class="text-[#ffdf00]">livraison</span>. 
+                Je reste disponible pour les ajustements et le suivi.
+              </p>
+            </div>
+          </div>
+        <!-- Répéter pour les autres questions -->
+        <div class="faq-item opacity-0 translate-y-6 transition-all duration-700 border border-[#0a1a2e]/50 rounded-lg overflow-hidden">
+          <button class="w-full flex justify-between items-center px-5 py-4 text-left hover:bg-cyan-400/10 transition group" onclick="toggleFAQ(this)">
+            <span>Travaillez-vous avec des particuliers ou uniquement des entreprises ?</span>
+            <svg class="w-5 h-5 text-[#FFD700] transform transition-transform group-[.open]:rotate-180"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="max-h-0 overflow-hidden transition-all duration-300 px-5 text-gray-300">
+            <p class="py-3">J’accompagne aussi bien les particuliers que les entreprises. 
+              Chaque projet est adapté au contexte et aux objectifs du client.</p>
+          </div>
+        </div>
+
+        <div style="padding-bottom: 50px" class="faq-item opacity-0 translate-y-6 transition-all duration-700 border border-[#0a1a2e]/50 rounded-lg overflow-hidden">
+          <button class="w-full flex justify-between items-center px-5 py-4 text-left hover:bg-cyan-400/10 transition group" onclick="toggleFAQ(this)">
+            <span>Quelle technologie utilisez-vous pour créer vos applications web ?</span>
+            <svg class="w-5 h-5 text-[#FFD700] transform transition-transform group-[.open]:rotate-180"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="max-h-0 overflow-hidden transition-all duration-300 px-5 text-gray-300">
+            <p class="py-3">J’utilise principalement <span class="text-white">Python (Django)</span> 
+              pour le back-end et <span class="text-[#ffdf00]">Tailwind CSS</span> 
+              pour des interfaces modernes et responsives. 
+              J’intègre aussi MySQL, PostgreSQL et d’autres outils selon les besoins.</p>
+          </div>
+        </div>
+        
+      </div>
+
+    </section>
+
+    <!-- TECHNOLOGIYA -->
+    <section class="relative bg-[#0a1a2e]">
+      <div class="sticky top-0 z-3 bg-[#0a1a2e] px-4 py-4 text-[#FFD700] text-2xl font-bold shadow-lg">
+        Technologiya
+      </div>
+      <div class="px-6 py-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-[#FFD700] mb-4">
+          Illustrations du monde technologique
+        </h2>
+        <p class="text-center text-gray-300 max-w-2xl mx-auto mb-8">
+          Plongez dans un univers visuel inspiré par l’IA, la robotique, les données et les innovations futures.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <div class="grid grid-flow-col auto-cols-[80%] sm:auto-cols-[60%] md:auto-cols-[40%] lg:auto-cols-[30%] gap-4 px-4 pb-4 snap-x snap-mandatory">
+          {% for item in carousel_items %}
+            <div class="snap-center relative h-44 rounded-2xl overflow-hidden bg-[#1f1f1f] shadow-lg group transition-transform duration-300 hover:scale-105">
+              <img src="{% static 'blog/images/' %}{{ item.image }}" alt="{{ item.titre }}"
+                   class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300" />
+              <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                <p class="text-base text-[#FFD700] font-semibold px-3 text-center">{{ item.titre }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    
+
+{% endblock content %}
